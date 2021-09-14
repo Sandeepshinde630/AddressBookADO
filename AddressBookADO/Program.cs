@@ -11,6 +11,9 @@ namespace AddressBookADO
             AddressBookSQLRepo repo = new AddressBookSQLRepo();
             AddressBookModel enter = new AddressBookModel();
             repo.GetDetails();
+            repo.UpdateDetails();
+            repo.Remove();
+            repo.RetrievePersonByCityOrState();
             string choice = Console.ReadLine();
             switch (choice)
             {

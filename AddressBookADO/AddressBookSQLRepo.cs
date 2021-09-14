@@ -138,6 +138,28 @@ namespace AddressBookADO
                 Console.WriteLine(e);
             }
         }
+        public void RetrievePersonByCityOrState()
+        {
+            try
+            {
+                using (connection)
+                {
+                    string query = $"select firstname from AddressBook where city = 'Memphis' OR state = 'Ohio'";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    var result = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (result != 0)
+                    {
+                        Console.WriteLine("Retrieved Person Successfully");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
 
     }
 }
